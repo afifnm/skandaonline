@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:skandaonline/navBottom.dart';
+import 'package:skandaonline/navSidebar.dart';
+import 'package:skandaonline/noGps.dart';
 
 class DashboardPage extends StatefulWidget {
   @override
@@ -9,12 +12,12 @@ class _Dashboard extends State < DashboardPage > {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white, // Warna latar belakang putih
+        backgroundColor: Colors.blue.shade300, // Warna latar belakang putih
         centerTitle: true,
         title: Text(
           'E-MLEBU',
           style: TextStyle(
-            color: Color(0xFF2F27CE), // Warna teks #2F27CE
+            color: Colors.white, // Warna teks #2F27CE
             fontFamily: 'Roboto', // Font family Roboto
             fontSize: 25,
             fontWeight: FontWeight.w700
@@ -31,50 +34,48 @@ class _Dashboard extends State < DashboardPage > {
           },
         ),
       ),
-      drawer: Drawer(
-        // Widget Sidebar / Drawer
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: < Widget > [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text(
-                'E-MLEBU',
-                style: TextStyle(
+      drawer: navSidebar(),
+      body: Container(
+        color: Colors.blue.shade50,
+        child: SingleChildScrollView(
+          padding: EdgeInsets.only(top: 60, bottom: 40, right: 30, left: 30),
+          child: Column(
+            children: < Widget > [
+              Container(
+                padding: EdgeInsets.all(13),
+                width: 350,
+                decoration: BoxDecoration(
                   color: Colors.white,
-                  fontSize: 24,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Afif Nuruddin Maisaroh',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'NIS: 3676',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            ListTile(
-              title: Text('Izin'),
-              onTap: () {
-                // Aksi ketika menu 1 dipilih
-              },
-            ),
-            ListTile(
-              title: Text('Pelanggaran'),
-              onTap: () {
-                // Aksi ketika menu 2 dipilih
-              },
-            ),
-          ],
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Container(
-            padding: EdgeInsets.all(20),
-            child: Column(
-              children: < Widget > [
-                Text('Selamat datang di aplikasi presensi Online'),
-              ],
-            ),
+              Padding(padding: EdgeInsets.only(top: 40)),
+              noGPS(),
+            ],
           ),
         ),
       ),
+      bottomNavigationBar: navBottom(),
     );
   }
 }

@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => LoginPage(),
-        '/dashboard': (context) => DashboardPage(),
+      //  '/': (context) => LoginPage(),
+      //  '/dashboard': (context) => DashboardPage(),
+        '/': (context) => DashboardPage(),
       },
       title: 'SkandaKra Online',
       theme: ThemeData(
