@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class navBottom extends StatefulWidget {
   @override
@@ -15,23 +14,30 @@ class _navBottom extends State < navBottom > {
         children: < Widget > [
           IconButton(
             color: Colors.white,
+            icon: Icon(Icons.home),
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/dashboard');
+            },
+          ),
+          IconButton(
+            color: Colors.white,
             icon: Icon(Icons.security),
             onPressed: () {
-              // Action when "Izin" is pressed
+              Navigator.pushReplacementNamed(context, '/izin');
             },
           ),
           IconButton(
             color: Colors.white,
             icon: Icon(Icons.warning),
             onPressed: () {
-              // Action when "Pelanggaran" is pressed
+              Navigator.pushReplacementNamed(context, '/pelanggaran');
             },
           ),
           IconButton(
             color: Colors.white,
             icon: Icon(Icons.emoji_events),
             onPressed: () {
-              // Action when "Prestasi" is pressed
+              Navigator.pushReplacementNamed(context, '/prestasi');
             },
           ),
         ],

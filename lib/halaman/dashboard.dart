@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:skandaonline/navBottom.dart';
-import 'package:skandaonline/navSidebar.dart';
-import 'package:skandaonline/noGps.dart';
+import 'package:skandaonline/component/navBottom.dart';
+import 'package:skandaonline/component/navSidebar.dart';
+import 'package:skandaonline/component/topBar.dart';
+import 'package:skandaonline/halaman/noGps.dart';
 
 class DashboardPage extends StatefulWidget {
   @override
@@ -12,11 +13,10 @@ class _Dashboard extends State < DashboardPage > {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade300, // Warna latar belakang putih
+        backgroundColor: Colors.blue.shade300, 
         centerTitle: true,
-        title: Text(
-          'E-MLEBU',
-          style: TextStyle(
+        title: Text('E-MLEBU',
+            style: TextStyle(
             color: Colors.white, // Warna teks #2F27CE
             fontFamily: 'Roboto', // Font family Roboto
             fontSize: 25,
@@ -41,34 +41,7 @@ class _Dashboard extends State < DashboardPage > {
           padding: EdgeInsets.only(top: 60, bottom: 40, right: 30, left: 30),
           child: Column(
             children: < Widget > [
-              Container(
-                padding: EdgeInsets.all(13),
-                width: 350,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Afif Nuruddin Maisaroh',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      'NIS: 3676',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              topBar(),
               Padding(padding: EdgeInsets.only(top: 40)),
               noGPS(),
             ],

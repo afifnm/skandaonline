@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:skandaonline/dashboard.dart';
-import 'package:skandaonline/login.dart';
+import 'package:skandaonline/halaman/dashboard.dart';
+import 'package:skandaonline/halaman/izin.dart';
+import 'package:skandaonline/halaman/login.dart';
+import 'package:skandaonline/halaman/pelanggaran.dart';
+import 'package:skandaonline/halaman/prestasi.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-      //  '/': (context) => LoginPage(),
-      //  '/dashboard': (context) => DashboardPage(),
-        '/': (context) => DashboardPage(),
+        '/': (context) => LoginPage(),
+        '/dashboard': (context) => DashboardPage(),
+        '/izin': (context) => IzinPage(),
+        '/prestasi': (context) => PrestasiPage(),
+        '/pelanggaran': (context) => PelanggaranPage(),
       },
       title: 'SkandaKra Online',
       theme: ThemeData(
