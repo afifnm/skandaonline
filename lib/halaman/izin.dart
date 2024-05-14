@@ -1,14 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:skandaonline/component/navBottom.dart';
-import 'package:skandaonline/component/navSidebar.dart';
 import 'package:skandaonline/component/topBar.dart';
-import 'package:skandaonline/halaman/noGps.dart';
 import 'package:intl/intl.dart'; 
-import 'package:http/http.dart'
-as http;
+import 'package:http/http.dart' as http;
 
 class IzinPage extends StatefulWidget {
+  const IzinPage({super.key});
+
   @override
   State < IzinPage > createState() => _IzinPage();
 }
@@ -40,7 +39,7 @@ class _IzinPage extends State < IzinPage > {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade300, // Warna latar belakang putih
+        backgroundColor: Colors.indigo, // Warna latar belakang putih
         centerTitle: true,
         title: Text(
           'E-MLEBU',
@@ -62,7 +61,6 @@ class _IzinPage extends State < IzinPage > {
           },
         ),
       ),
-      drawer: navSidebar(),
       body: Container(
         color: Colors.blue.shade50,
         child: SingleChildScrollView(

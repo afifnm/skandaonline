@@ -1,48 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:skandaonline/halaman/cek_lokasi.dart';
+import 'package:skandaonline/halaman/dashboard.dart';
+import 'package:skandaonline/halaman/izin.dart';
+import 'package:skandaonline/halaman/login.dart';
+import 'package:skandaonline/halaman/pelanggaran.dart';
+import 'package:skandaonline/halaman/prestasi.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({
+    super.key
+  });
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Box with Name and NIS'),
-        ),
-        body: Center(
-          child: Container(
-            width: 200,
-            height: 100,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'John Doe',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  'NIS: 123456789',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LoginPage(),
+        '/ceklokasi': (context) => LocationPage(),
+        '/dashboard': (context) => DashboardPage(),
+        '/izin': (context) => IzinPage(),
+        '/prestasi': (context) => PrestasiPage(),
+        '/pelanggaran': (context) => PelanggaranPage(),
+      },
+      title: 'SkandaKra Online',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
     );
   }

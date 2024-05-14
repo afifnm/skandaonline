@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:skandaonline/component/navBottom.dart';
-import 'package:skandaonline/component/navSidebar.dart';
 import 'package:skandaonline/component/topBar.dart';
 import 'package:intl/intl.dart'; 
 import 'package:http/http.dart'
@@ -40,7 +39,7 @@ class _PrestasiPage extends State < PrestasiPage > {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade300, // Warna latar belakang putih
+        backgroundColor: Colors.indigo, // Warna latar belakang putih
         centerTitle: true,
         title: Text(
           'E-MLEBU',
@@ -62,7 +61,6 @@ class _PrestasiPage extends State < PrestasiPage > {
           },
         ),
       ),
-      drawer: navSidebar(),
       body: Container(
         color: Colors.blue.shade50,
         child: SingleChildScrollView(

@@ -2,6 +2,25 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart'
 as http;
+import 'package:provider/provider.dart';
+
+// Buat model untuk data pengguna setelah login
+class UserData {
+  final String username;
+  final String nama;
+  final String kelas;
+  final String email;
+  final String role;
+
+  UserData({
+    required this.username,
+    required this.nama,
+    required this.kelas,
+    required this.email,
+    required this.role,
+  });
+}
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -10,7 +29,36 @@ class LoginPage extends StatefulWidget {
   @override
   State < LoginPage > createState() => _LoginPage();
 }
+// Buat provider untuk menyimpan informasi pengguna setelah login
+class UserProvider extends ChangeNotifier {
+  UserData ? _userData;
+
+  UserData ? get userData => _userData;
+
+  // Fungsi untuk menyimpan informasi pengguna setelah login
+  void setUserData({
+    required String username,
+    required String nama,
+    required String kelas,
+    required String email,
+    required String role,
+  }) {
+    _userData = UserData(
+      username: username,
+      nama: nama,
+      kelas: kelas,
+      email: email,
+      role: role
+    );
+    notifyListeners();
+  }
+  UserData? getUser(){
+    return _userData;
+  }
+}
+
 class _LoginPage extends State < LoginPage > {
+  
   final TextEditingController _nisController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -25,11 +73,21 @@ class _LoginPage extends State < LoginPage > {
       },
     );
     if (response.statusCode == 200) {
-      Navigator.pushReplacementNamed(context, '/dashboard');
+      final data = json.decode(response.body);
+          // Set informasi pengguna setelah login ke dalam provider
+      Provider.of < UserProvider > (context, listen: false).setUserData(
+        username: data['user']['username'],
+        nama: data['user']['nama'],
+        kelas: data['user']['kelas'],
+        email: data['user']['email'],
+        role: data['user']['level']
+      );
       print(json.decode(response.body));
+      Navigator.pushReplacementNamed(context, '/dashboard');
     } else {
+      print(json.decode(response.body));
       final pesan = json.decode(response.body);
-      showDialog(
+       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
@@ -60,11 +118,11 @@ class _LoginPage extends State < LoginPage > {
                 Padding(padding: EdgeInsets.only(bottom: 80)),
                 Image.asset('assets/logo.png', scale: 2, ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
-                Text('E-MLEBU', style: TextStyle(
+                Text('SKANDA ONLINE', style: TextStyle(
                   fontSize: 25,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w500,
-                  color: Colors.blue.shade400,
+                  color: Colors.indigo,
                 ), ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 TextFormField(
@@ -93,7 +151,7 @@ class _LoginPage extends State < LoginPage > {
                   onPressed: _login,
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: Colors.blue, // Warna teks tombol
+                    backgroundColor: Colors.indigo, // Warna teks tombol
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Padding tombol
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50), // Border radius tombol

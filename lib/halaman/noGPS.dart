@@ -16,16 +16,14 @@ class _noGPS extends State < noGPS > {
       child: Center(
         child: Column(
           children: < Widget > [
-            Padding(padding: EdgeInsets.only(top: 30)),
-            Text('Aktivitas', style: TextStyle(fontSize: 18), ),
-            Padding(padding: EdgeInsets.only(top: 40)),
-            Text('GPS Belum Aktif', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600)),
-            Padding(padding: EdgeInsets.only(top: 40)),
-            Text('Hidupkan GPS pada setting hp atau setting browser untuk melanjutkan.',
-              style: TextStyle(fontSize: 20)),
-            Padding(padding: EdgeInsets.only(top: 30)),
-            Image.asset('assets/unknown.png', scale: 3, ),
-            Padding(padding: EdgeInsets.only(top: 80)),
+            Padding(padding: EdgeInsets.only(top: 20)),
+            Text('Waktunya Absen', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), ),
+            Padding(padding: EdgeInsets.only(top: 10)),
+            Text('Kamu belum berada pada jangkauan lokasi sekaloh.',
+              style: TextStyle(fontSize: 18)),
+            Padding(padding: EdgeInsets.only(top: 10)),
+            Image.asset('assets/noLocation.png', scale: 1, ),
+            Padding(padding: EdgeInsets.only(top: 10)),
           ],
         )
       ),
