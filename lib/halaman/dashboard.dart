@@ -13,10 +13,10 @@ class DashboardPage extends StatefulWidget {
 class _Dashboard extends State < DashboardPage > {
   final double targetLatitude = -7.590165;
   final double targetLongitude = 110.9505183;
-  final double targetDistance = 50; // 50 meters
+  final double targetDistance = 70; // 50 meters
 
   bool isOutsideTargetDistance = false;
-
+  String currentLocation = '';
   @override
   void initState() {
     super.initState();
@@ -38,6 +38,7 @@ class _Dashboard extends State < DashboardPage > {
 
       setState(() {
         isOutsideTargetDistance = distanceInMeters > targetDistance;
+        currentLocation = 'Latitude: ${currentPosition.latitude}, Longitude: ${currentPosition.longitude}';
       });
     } catch (e) {
       print("Error: $e");
@@ -81,6 +82,11 @@ class _Dashboard extends State < DashboardPage > {
                     topBar(),
                     Padding(padding: EdgeInsets.only(top: 40)),
                     isOutsideTargetDistance ? noGPS() : absen(),
+SizedBox(height: 20), // Spasi antara widget absen dan informasi lokasi
+                    Text(
+                      'Current Location: $currentLocation', // Menampilkan informasi lokasi saat ini
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
               ),

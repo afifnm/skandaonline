@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => UserProvider()), ],
       child: MaterialApp(
-        initialRoute: '/',
+        initialRoute: '/dashboard',
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/':
