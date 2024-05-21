@@ -12,7 +12,7 @@ class _topBar extends State<topBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(13),
+      padding: EdgeInsets.all(10),
       width: 350,
       decoration: BoxDecoration(
         color: Colors.white,

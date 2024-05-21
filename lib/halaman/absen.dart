@@ -3,11 +3,20 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart'
 as http;
+import 'package:image_picker/image_picker.dart';
 
 class absen extends StatefulWidget {
   State < absen > createState() => _absen();
 }
 class _absen extends State < absen > {
+  Future<void> _doAbsen2() async {
+    final pickedFile = await ImagePicker().getImage(source: ImageSource.camera);
+    if (pickedFile != null) {
+      // Handle the captured image, you may want to process it further or upload it
+    print(pickedFile.path);// Jalankan _doAbsen setelah foto diambil
+    await _doAbsen();
+    }
+  }
     Future < void > _doAbsen() async {
     final String nis = '';
     final String password = '';
@@ -58,13 +67,13 @@ class _absen extends State < absen > {
             Padding(padding: EdgeInsets.only(top: 20)),
             Text('Waktunya Absen', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), ),
             Padding(padding: EdgeInsets.only(top: 10)),
-            Text('Silahkan absen dan nikmati waktu di sekolamu.',
+            Text('Silahkan absen dan nikmati waktu di sekolahmu.',
               style: TextStyle(fontSize: 20)),
             Padding(padding: EdgeInsets.only(top: 10)),
             Image.asset('assets/yesGPS.png', scale: 1, ),
             Padding(padding: EdgeInsets.only(top: 10)),
             ElevatedButton(
-              onPressed: _doAbsen,
+              onPressed: _doAbsen2,
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.indigo, // Warna teks tombol

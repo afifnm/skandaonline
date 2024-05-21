@@ -19,17 +19,7 @@ class _myAppBar extends State<myAppBar> {
           fontSize: 25,
           fontWeight: FontWeight.w700
         ),
-      ),
-      leading: Builder(
-        builder: (BuildContext context) {
-          return IconButton(
-            icon: Icon(Icons.menu, color: Colors.black), // Ikonya disini (misalnya, ikon menu)
-            onPressed: () {
-              Scaffold.of(context).openDrawer(); // Ketika ikon ditekan, buka sidebar
-            },
-          );
-        },
-      ),
+      )
     );
   }
 }

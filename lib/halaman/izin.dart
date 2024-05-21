@@ -62,9 +62,9 @@ class _IzinPage extends State < IzinPage > {
         ),
       ),
       body: Container(
-        color: Colors.blue.shade50,
+        color: Colors.grey.shade200,
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 60, bottom: 40, right: 30, left: 30),
+          padding: EdgeInsets.only(top: 40, bottom: 40, right: 30, left: 30),
           child: Column(
             children: < Widget > [
               topBar(),
@@ -94,7 +94,7 @@ class _IzinPage extends State < IzinPage > {
                             return Column(
                               children: [
                                 DataTable(
-                                  columnSpacing: 10,
+                                  columnSpacing: 5,
                                   columns: [
                                     DataColumn(label: Text('Ket')),
                                     DataColumn(label: Text('Alasan')),
@@ -124,6 +124,7 @@ class _IzinPage extends State < IzinPage > {
           ),
         ),
       ),
+      backgroundColor: Colors.grey.shade200,
       bottomNavigationBar: navBottom(),
     );
   }

@@ -62,9 +62,9 @@ class _PrestasiPage extends State < PrestasiPage > {
         ),
       ),
       body: Container(
-        color: Colors.blue.shade50,
+        color: Colors.grey.shade200,
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 60, bottom: 40, right: 30, left: 30),
+          padding: EdgeInsets.only(top: 40, bottom: 40, right: 30, left: 30),
           child: Column(
             children: < Widget > [
               topBar(),
@@ -127,6 +127,7 @@ class _PrestasiPage extends State < PrestasiPage > {
         ),
       ),
       bottomNavigationBar: navBottom(),
+      backgroundColor: Colors.grey.shade200,
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skandaonline/component/appbar.dart';
 import 'package:skandaonline/component/navBottom.dart';
 import 'package:skandaonline/component/topBar.dart';
 import 'package:skandaonline/halaman/absen.dart';
@@ -49,27 +50,17 @@ class _Dashboard extends State < DashboardPage > {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
-        centerTitle: true,
-        title: Text('SKANDA ONLINE',
-          style: TextStyle(
-            color: Colors.white, // Warna teks #2F27CE
-            fontFamily: 'Roboto', // Font family Roboto
-            fontSize: 25,
-            fontWeight: FontWeight.w700
-          ),
+      backgroundColor: Colors.indigo,
+      centerTitle: true,
+      title: Text('SKANDA ONLINE',
+        style: TextStyle(
+          color: Colors.white, // Warna teks #2F27CE
+          fontFamily: 'Roboto', // Font family Roboto
+          fontSize: 25,
+          fontWeight: FontWeight.w700
         ),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: Icon(Icons.menu, color: Colors.black), // Ikonya disini (misalnya, ikon menu)
-              onPressed: () {
-                Scaffold.of(context).openDrawer(); // Ketika ikon ditekan, buka sidebar
-              },
-            );
-          },
-        ),
-      ),
+      )
+    ),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -82,9 +73,9 @@ class _Dashboard extends State < DashboardPage > {
                     topBar(),
                     Padding(padding: EdgeInsets.only(top: 40)),
                     isOutsideTargetDistance ? noGPS() : absen(),
-SizedBox(height: 20), // Spasi antara widget absen dan informasi lokasi
+                    SizedBox(height: 20), // Spasi antara widget absen dan informasi lokasi
                     Text(
-                      'Current Location: $currentLocation', // Menampilkan informasi lokasi saat ini
+                      '$currentLocation', // Menampilkan informasi lokasi saat ini
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ],
