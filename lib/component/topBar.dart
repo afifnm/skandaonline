@@ -32,8 +32,8 @@ class _topBar extends State<topBar> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                //Provider.of < UserProvider > (context, listen: false).getUser()!.nama,
-                'Pipapip Pup',
+                Provider.of < UserProvider > (context, listen: false).getUser()!.nama,
+                //'Pipapip Pup',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -41,8 +41,8 @@ class _topBar extends State<topBar> {
                 ),
               ),
               Text(
-                //Provider.of < UserProvider > (context, listen: false).getUser()!.username,
-                '3676',
+                Provider.of < UserProvider > (context, listen: false).getUser()!.username,
+                //'3676',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
